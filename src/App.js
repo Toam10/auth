@@ -9,13 +9,15 @@ import Register from "./screens/register";
 const MySpace = React.lazy(() => import("./screens/mySpace"));
 
 function App() {
-	const { user, isAuthenticated, isLoading, logout } = useAuth0();
+	const { user, isAuthenticated, isLoading } = useAuth0();
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!isAuthenticated) return;
 		navigate("/mySpace");
-	}, [isAuthenticated]);
+		localStorage.setItem("userName", user.name);
+	}, [isAuthenticated, navigate, user?.name]);
+
 	return (
 		<div className="App">
 			<Routes>
@@ -26,7 +28,6 @@ function App() {
 					element={<React.Suspense fallback={<LoadingSuspense />}>{!isLoading && <MySpace />}</React.Suspense>}
 				/>
 			</Routes>
-			<button onClick={() => logout()}>Logout</button>
 		</div>
 	);
 }

@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter } from "react-router-dom";
-import Auth0ProviderWithNavigate from "./auth0-provider-with-history";
+import Auth0ProviderWithNavigate from "./auth0-provider-with-navigate";
 
 ReactDOM.render(
 	<React.StrictMode>
