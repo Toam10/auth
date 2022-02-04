@@ -9,7 +9,7 @@ const Form = ({ children, attr }) => {
 		loginWithRedirect();
 	};
 	return (
-		<form method={"POST"} id="login-form" {...attr} onSubmit={() => onSubmit()}>
+		<form method={"POST"} id="login-form" {...attr} onSubmit={(event) => onSubmit(event)}>
 			{children}
 		</form>
 	);
